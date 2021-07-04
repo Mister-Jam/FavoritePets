@@ -5,4 +5,13 @@
 //  Created by King Bileygr on 7/3/21.
 //
 
-import Foundation
+import UIKit
+
+extension UIView {
+    
+    func addSub(views: [UIView] ) {
+        views.forEach { view in
+            self.addSubview(view)
+        }
+    }
+}
