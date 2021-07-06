@@ -14,6 +14,14 @@
 		04160EC92690896A006977AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04160EC82690896A006977AB /* Constants.swift */; };
 		04160ECB269093CB006977AB /* CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04160ECA269093CB006977AB /* CustomTransition.swift */; };
 		04160ECD26911B0C006977AB /* CatsILikeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04160ECC26911B0C006977AB /* CatsILikeCollectionViewCell.swift */; };
+		04160ECF2691A07C006977AB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04160ECE2691A07C006977AB /* NetworkManager.swift */; };
+		04160ED12691ACA4006977AB /* CatsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04160ED02691ACA4006977AB /* CatsDataModel.swift */; };
+		04160ED32691BC81006977AB /* SpinnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04160ED22691BC81006977AB /* SpinnerController.swift */; };
+		04160ED52691BCF8006977AB /* AllPetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04160ED42691BCF8006977AB /* AllPetsViewModel.swift */; };
+		04160EFD2692FF71006977AB /* LikedImageCache.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04160EFB2692FF71006977AB /* LikedImageCache.xcdatamodeld */; };
+		04160F0026930214006977AB /* LikedImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04160EFE26930214006977AB /* LikedImage+CoreDataClass.swift */; };
+		04160F0126930214006977AB /* LikedImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04160EFF26930214006977AB /* LikedImage+CoreDataProperties.swift */; };
+		04160F0326930364006977AB /* CacheLikedPetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04160F0226930364006977AB /* CacheLikedPetViewModel.swift */; };
 		043523EF269060110015023E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043523EE269060110015023E /* AppDelegate.swift */; };
 		043523F1269060110015023E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043523F0269060110015023E /* SceneDelegate.swift */; };
 		043523F3269060110015023E /* AllCatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043523F2269060110015023E /* AllCatsViewController.swift */; };
@@ -48,6 +56,14 @@
 		04160EC82690896A006977AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04160ECA269093CB006977AB /* CustomTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTransition.swift; sourceTree = "<group>"; };
 		04160ECC26911B0C006977AB /* CatsILikeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsILikeCollectionViewCell.swift; sourceTree = "<group>"; };
+		04160ECE2691A07C006977AB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		04160ED02691ACA4006977AB /* CatsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsDataModel.swift; sourceTree = "<group>"; };
+		04160ED22691BC81006977AB /* SpinnerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerController.swift; sourceTree = "<group>"; };
+		04160ED42691BCF8006977AB /* AllPetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPetsViewModel.swift; sourceTree = "<group>"; };
+		04160EFC2692FF71006977AB /* LikedImageCache.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LikedImageCache.xcdatamodel; sourceTree = "<group>"; };
+		04160EFE26930214006977AB /* LikedImage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LikedImage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		04160EFF26930214006977AB /* LikedImage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LikedImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		04160F0226930364006977AB /* CacheLikedPetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheLikedPetViewModel.swift; sourceTree = "<group>"; };
 		043523EB269060110015023E /* FavoritePets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoritePets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		043523EE269060110015023E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		043523F0269060110015023E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +107,8 @@
 		04160EBB269066BE006977AB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				04160F04269311BB006977AB /* CoreData */,
+				04160ED02691ACA4006977AB /* CatsDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -108,6 +126,8 @@
 		04160EBD269066CE006977AB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				04160ED42691BCF8006977AB /* AllPetsViewModel.swift */,
+				04160F0226930364006977AB /* CacheLikedPetViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -118,6 +138,7 @@
 				04160EBF26906738006977AB /* HomeTabBarController.swift */,
 				043523F2269060110015023E /* AllCatsViewController.swift */,
 				04160EC1269067BD006977AB /* CatsILikeViewController.swift */,
+				04160ED22691BC81006977AB /* SpinnerController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -130,8 +151,19 @@
 				04160EC82690896A006977AB /* Constants.swift */,
 				04160EC326906EDF006977AB /* Extensions.swift */,
 				04160ECA269093CB006977AB /* CustomTransition.swift */,
+				04160ECE2691A07C006977AB /* NetworkManager.swift */,
+				04160EFB2692FF71006977AB /* LikedImageCache.xcdatamodeld */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		04160F04269311BB006977AB /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				04160EFE26930214006977AB /* LikedImage+CoreDataClass.swift */,
+				04160EFF26930214006977AB /* LikedImage+CoreDataProperties.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		043523E2269060110015023E = {
@@ -317,13 +349,21 @@
 			files = (
 				04160ECD26911B0C006977AB /* CatsILikeCollectionViewCell.swift in Sources */,
 				043523F3269060110015023E /* AllCatsViewController.swift in Sources */,
+				04160ED32691BC81006977AB /* SpinnerController.swift in Sources */,
 				04160EC726906F62006977AB /* AllCatsTableViewCell.swift in Sources */,
+				04160EFD2692FF71006977AB /* LikedImageCache.xcdatamodeld in Sources */,
+				04160F0026930214006977AB /* LikedImage+CoreDataClass.swift in Sources */,
 				04160ECB269093CB006977AB /* CustomTransition.swift in Sources */,
+				04160ECF2691A07C006977AB /* NetworkManager.swift in Sources */,
+				04160F0126930214006977AB /* LikedImage+CoreDataProperties.swift in Sources */,
+				04160ED52691BCF8006977AB /* AllPetsViewModel.swift in Sources */,
 				04160EC426906EDF006977AB /* Extensions.swift in Sources */,
 				043523EF269060110015023E /* AppDelegate.swift in Sources */,
 				04160EC026906738006977AB /* HomeTabBarController.swift in Sources */,
+				04160ED12691ACA4006977AB /* CatsDataModel.swift in Sources */,
 				04160EC2269067BD006977AB /* CatsILikeViewController.swift in Sources */,
 				043523F1269060110015023E /* SceneDelegate.swift in Sources */,
+				04160F0326930364006977AB /* CacheLikedPetViewModel.swift in Sources */,
 				04160EC92690896A006977AB /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -649,6 +689,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		04160EFB2692FF71006977AB /* LikedImageCache.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				04160EFC2692FF71006977AB /* LikedImageCache.xcdatamodel */,
+			);
+			currentVersion = 04160EFC2692FF71006977AB /* LikedImageCache.xcdatamodel */;
+			path = LikedImageCache.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 043523E3269060110015023E /* Project object */;
 }

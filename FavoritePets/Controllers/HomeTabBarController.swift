@@ -8,31 +8,31 @@
 import UIKit
 
 class HomeTabBarController: UITabBarController {
-
+//MARK: Set-up Tab Bars
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let allCatsTabBar = AllCatsViewController()
-        let catsILikeTabBar = CatsILikeViewController(collectionViewLayout: CatsILikeViewController.collectionViewLayout())
-        delegate = self
+        let allCatsTabBar           = AllCatsViewController()
+        let catsILikeTabBar         = CatsILikeViewController(collectionViewLayout: CatsILikeViewController.collectionViewLayout())
+        delegate                    = self
         
-        allCatsTabBar.title = "All Cats"
-        catsILikeTabBar.title = "Cats I Like"
+        allCatsTabBar.title         = "All Cats"
+        catsILikeTabBar.title       = "Cats I Like"
         
-        let allCatsHome = UINavigationController(rootViewController: allCatsTabBar)
-        let catsILikeHome = UINavigationController(rootViewController: catsILikeTabBar)
+        let allCatsHome             = UINavigationController(rootViewController: allCatsTabBar)
+        let catsILikeHome           = UINavigationController(rootViewController: catsILikeTabBar)
         
-        allCatsHome.tabBarItem = UITabBarItem(title: "All cats", image: UIImage(named: "CatTabVector"), tag: 0)
+        allCatsHome.tabBarItem      = UITabBarItem(title: "All cats", image: UIImage(named: "CatTabVector"), tag: 0)
         allCatsHome.tabBarItem.setTitleTextAttributes(Constants.tabBarText, for: .normal)
-        catsILikeHome.tabBarItem = UITabBarItem(title: "Cats I like", image: UIImage(named: "LikeVector"), tag: 1)
+        catsILikeHome.tabBarItem    = UITabBarItem(title: "Cats I like", image: UIImage(named: "LikeVector"), tag: 1)
         catsILikeHome.tabBarItem.setTitleTextAttributes(Constants.tabBarText, for: .normal)
         
        
-        tabBar.barTintColor = .white
-        tabBar.tintColor = .black
+        tabBar.barTintColor         = .white
+        tabBar.tintColor            = .black
         
-        allCatsHome.navigationBar.prefersLargeTitles = true
-        catsILikeHome.navigationBar.prefersLargeTitles = true
+        allCatsHome.navigationBar.prefersLargeTitles    = true
+        catsILikeHome.navigationBar.prefersLargeTitles  = true
         
         setViewControllers([allCatsHome, catsILikeHome], animated: true)
         

@@ -59,4 +59,12 @@ struct Constants {
         viewController.present(controller, animated: true, completion: nil)
 
     }
+    
+    static func topMostController() -> UIViewController {
+        var topController: UIViewController = (UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController!)!
+            while topController.presentedViewController != nil {
+                topController = topController.presentedViewController!
+            }
+            return topController
+        }
 }
