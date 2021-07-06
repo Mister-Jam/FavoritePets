@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+struct CatsDataModel: Decodable {
+   
+    var image: ImageModel?
+    var name: String
+}
+
+struct ImageModel: Codable {
+    
+    var url: String?
+}
