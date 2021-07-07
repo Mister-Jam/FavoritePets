@@ -13,7 +13,7 @@ final class NetworkManager {
     
     private let path    = "v1/breeds"
     //MARK: Pass in URL and get a decoded Data
-    func getCatsData(completion: @escaping ((Result<[CatsDataModel], Error>)->Void)) {
+    public func getCatsData(completion: @escaping ((Result<[CatsDataModel], Error>)->Void)) {
         guard let urlrequest = URL(string: Constants.UrlConstants.baseUrl+path) else { return }
         URLSession.shared.decodeData(from: urlrequest, type: [CatsDataModel].self) { result in
             switch result {

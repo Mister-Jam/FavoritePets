@@ -9,9 +9,9 @@ import UIKit
 
 class AllPetsViewModel {
 
-    var catName: String
-    var imageUrl: String?
-    var isLiked: Bool = false
+    public var catName: String
+    public var imageUrl: String?
+    public var isLiked: Bool = false
    
     init( name: String, imageUrl: String, likeStatus: Bool) {
         catName         = name
@@ -19,7 +19,7 @@ class AllPetsViewModel {
         isLiked         = likeStatus
     }
     ///Download image data and load image
-    func downloadImage(imageView: UIImageView, success: @escaping ((Data)->Void) ) {
+    public func downloadImage(imageView: UIImageView, success: @escaping ((Data)->Void) ) {
         guard let imageUrl      = imageUrl,
               let url           = URL(string: imageUrl) else { return }
         

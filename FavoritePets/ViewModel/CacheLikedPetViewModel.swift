@@ -9,11 +9,11 @@ import UIKit
 
 class CacheLikedPetViewModel {
     
-    private let context     = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var cachedPetsModel     = [LikedImage]()
+    private let context             = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    public var cachedPetsModel      = [LikedImage]()
     
     ///Fetches all items in the database
-    func getLikedPets(collection: UICollectionView? = nil) {
+    public func getLikedPets(collection: UICollectionView? = nil) {
         do {
             cachedPetsModel = try context.fetch(LikedImage.fetchRequest())
             DispatchQueue.main.async {
@@ -24,7 +24,7 @@ class CacheLikedPetViewModel {
         }
     }
     ///Save a liked pet by creating a new entry in the database
-    func saveLikedPet(petName: String, imageData: Data) {
+    public func saveLikedPet(petName: String, imageData: Data) {
         let newLikedPet         = LikedImage(context: context)
         newLikedPet.petName     = petName
         newLikedPet.isLiked     = true
@@ -48,7 +48,7 @@ class CacheLikedPetViewModel {
         return nil
     }
     ///Gets the index of a pet in the database and delete it after unliking it
-    func unlikeCachedPet(name: String) {
+    public func unlikeCachedPet(name: String) {
         getLikedPets()
         guard let index = getCachedPetIndex(petName: name) else { return }
         let catToBeUnliked = cachedPetsModel[index]
@@ -56,7 +56,7 @@ class CacheLikedPetViewModel {
     }
     
     ///Delete a pet from the database
-    func deletePetFromLikedCategory(likedPet: LikedImage) {
+    public func deletePetFromLikedCategory(likedPet: LikedImage) {
         context.delete(likedPet)
         likedPet.isLiked = false
         do {

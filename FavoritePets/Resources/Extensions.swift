@@ -53,8 +53,8 @@ extension URLSession {
         }
     }
     
-    enum DecodingErrors: Error {
-        case failedToFetchData
+    enum DecodingErrors: String, Error {
+        case failedToFetchData = "Unable to fetch data from the web....Check your network and try again"
     }
     
 }

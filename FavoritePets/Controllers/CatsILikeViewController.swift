@@ -60,7 +60,7 @@ class CatsILikeViewController: UICollectionViewController {
         return label
     }()
     ///Setup collection view to hide and display label when model is empty
-    func setupBackground() {
+    private func setupBackground() {
         view.addSubview(noLikedCatsLabel)
         if sortedLikedPets.isEmpty {
             collectionView.isHidden     = true

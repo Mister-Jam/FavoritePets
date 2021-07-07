@@ -34,7 +34,7 @@ class SpinnerViewController: UIViewController {
         self.removeFromParent()
     }
     
-    func constraints() {
+    private func constraints() {
         [spinner, spinnerLabel].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
@@ -48,7 +48,7 @@ class SpinnerViewController: UIViewController {
         ])
     }
     
-    let spinnerLabel: UILabel   = {
+    private let spinnerLabel: UILabel   = {
         let label               = UILabel()
         label.font              = UIFont.systemFont(ofSize: 20)
         label.textAlignment     = .center

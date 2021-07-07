@@ -52,7 +52,7 @@ class AllCatsViewController: UITableViewController {
                 DispatchQueue.main.async {
                     strongSelf.spinner.stop()
                     Constants.failureAlert(viewController: strongSelf,
-                                           text: "\(Constants.Alert.fetchErrorText)\n\(String(describing: error))")
+                                           text: "\(Constants.Alert.fetchErrorText)\n\(String(describing: error.localizedDescription))")
                 }
             }
         }
@@ -60,7 +60,7 @@ class AllCatsViewController: UITableViewController {
     
     
     //MARK: Listen for posted notifications of pets liked and unliked
-    func listenForLikedCats() {
+    private func listenForLikedCats() {
         /// Observe for when a pet is liked and update the model accordingly
         observer            = NotificationCenter.default.addObserver(
                                                 forName: .didLikeCat, object: nil, queue: .main, using: { [weak self] cat in
@@ -75,7 +75,7 @@ class AllCatsViewController: UITableViewController {
         })
     }
     
-    func listenForUnlikedCats() {
+    private func listenForUnlikedCats() {
         /// Observe for when a pet is unliked, and update the model accordingly
         observer            = NotificationCenter.default.addObserver(
                                                 forName: .didUnlikeCat, object: nil, queue: .current, using: { [weak self] item in
@@ -93,7 +93,7 @@ class AllCatsViewController: UITableViewController {
     }
     
     //MARK: Compare incoming data with cached data and update the model so the UI reflects liked pets
-    func filterDataForLikedPets(model: CacheLikedPetViewModel = CacheLikedPetViewModel()) {
+    private func filterDataForLikedPets(model: CacheLikedPetViewModel = CacheLikedPetViewModel()) {
         model.getLikedPets()
         let likedPetsNames = model.cachedPetsModel.compactMap { pet in
             pet.petName

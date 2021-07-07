@@ -41,12 +41,12 @@ class AllCatsTableViewCell: UITableViewCell {
         return label
     }()
     
-    let likeButton: UIButton            = {
+    private let likeButton: UIButton    = {
         let button                      = UIButton(type: .system)
         return button
     }()
     //MARK: Add Objects to ContentView and Set up Constraints, Frame and View Properties
-    func setupSubViews() {
+    private func setupSubViews() {
         contentView.addSubview(containerView)
         containerView.addSub(views: [petIconImage, petNameLabel, likeButton ] )
         
@@ -64,17 +64,17 @@ class AllCatsTableViewCell: UITableViewCell {
         
     }
     
-    func plainButton() {
+    private func plainButton() {
         likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
         likeButton.tintColor                = .lightGray
     }
     
-    func likedButton() {
+    private func likedButton() {
         likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         likeButton.tintColor                = #colorLiteral(red: 0.8705882353, green: 0.007843137255, blue: 0.007843137255, alpha: 1)
     }
     
-    func constraints() {
+    private func constraints() {
         
         NSLayoutConstraint.activate([
             petNameLabel.leadingAnchor.constraint(equalTo: petIconImage.trailingAnchor, constant: 12),
@@ -88,7 +88,7 @@ class AllCatsTableViewCell: UITableViewCell {
         
     }
     //MARK: Configure Cell Items with Data
-    func configureCellItems(with model: AllPetsViewModel) {
+    public func configureCellItems(with model: AllPetsViewModel) {
         model.downloadImage(imageView: petIconImage) { data in
             self.imageData = data
         }
@@ -101,7 +101,7 @@ class AllCatsTableViewCell: UITableViewCell {
         isLiked ? unlikeCat() : likeCat()
     }
     
-    func unlikeCat(from database: CacheLikedPetViewModel = CacheLikedPetViewModel()) {
+    private func unlikeCat(from database: CacheLikedPetViewModel = CacheLikedPetViewModel()) {
         /// Remove an unliked cat from the database
         isLiked = false
         guard let name = petNameLabel.text else { return }
@@ -110,7 +110,7 @@ class AllCatsTableViewCell: UITableViewCell {
         Constants.Animations.fadeOutLikedButton(button: likeButton)
     }
     
-    func likeCat(from database: CacheLikedPetViewModel = CacheLikedPetViewModel()) {
+    private func likeCat(from database: CacheLikedPetViewModel = CacheLikedPetViewModel()) {
         /// Add a liked cat to the database
         isLiked = true
         guard let petName = petNameLabel.text,
