@@ -12,14 +12,7 @@ class CatsILikeViewController: UICollectionViewController {
     private var cachedPets                  = CacheLikedPetViewModel()
     private var likedPetsObserver: NSObjectProtocol?
     ///Sort the array of cached images in ascending order
-    var sortedLikedPets: [LikedImage] {
-        return cachedPets.cachedPetsModel.sorted { item0, item1 in
-            guard let item0Name = item0.petName, let item1Name = item1.petName else {
-                return false
-            }
-            return item0Name < item1Name
-        }
-    }
+    private var sortedLikedPets             = [LikedImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +20,14 @@ class CatsILikeViewController: UICollectionViewController {
         likedPetsObserver  = NotificationCenter.default.addObserver(
                                             forName: .didUnlikeCat, object: nil, queue: .main, using: { [self] item in
             cachedPets.getLikedPets(collection: collectionView)
+            sortedLikedPets = sortPets()
             collectionView.reloadInputViews()
         })
         navigationController?.navigationBar.largeTitleTextAttributes    = Constants.titleText
         cachedPets.getLikedPets(collection: collectionView)
         view.backgroundColor                                            = .lightGray
         collectionView.backgroundColor                                  = .white
-        
+        sortedLikedPets                                                 = sortPets()
         collectionView.register(CatsILikeCollectionViewCell.self,
                                 forCellWithReuseIdentifier: String(describing: CatsILikeCollectionViewCell.self))
     }
@@ -41,6 +35,7 @@ class CatsILikeViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupBackground()
+        sortedLikedPets         = sortPets()
     }
     ///Remove notification observer after view has been deinitialized
     deinit {
@@ -72,6 +67,15 @@ class CatsILikeViewController: UICollectionViewController {
             noLikedCatsLabel.isHidden   = true
             collectionView.isHidden     = false
             cachedPets.getLikedPets(collection: collectionView)
+        }
+    }
+    ///Sort the saved ipets in ascending order
+    func sortPets() -> [LikedImage] {
+        cachedPets.cachedPetsModel.sorted { item0, item1 in
+            guard let item0Name = item0.petName, let item1Name = item1.petName else {
+                return false
+            }
+            return item0Name < item1Name
         }
     }
     //MARK: Set up collection view layout
